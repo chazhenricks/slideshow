@@ -1,0 +1,20 @@
+{
+    "puppies" : [
+        {
+            "name": "Steve",
+            "src": "images/pup1.jpg"
+        },
+        {
+            "name": "Thor",
+            "src": "images/pup2.jpg"
+        },
+        {
+            "name": "Spot",
+            "src": "images/pup3.jpg"
+        },
+        {
+            "name": "Rufus",
+            "src": "images/pup4.jpg"
+        }
+    ]
+}
