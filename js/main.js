@@ -33,6 +33,7 @@ puppy.showPuppies = function(pics){
 
     $("#slideshow").append(puppyImage);
     puppy.buttons();
+    puppy.showDivs(picsIndex);
 
 };
 
@@ -48,23 +49,22 @@ puppy.buttons = function(){
 
 };
 
-puppy.plusDivs = function(n){
-    puppy.showDivs(picsIndex += n);
+puppy.plusDivs = function(counter){
+    puppy.showDivs(picsIndex += counter);
 };
 
-puppy.showDivs = function(n){
-    var i;
-    var x = $(".pics-div");
-    if (n > x.length){
-        picsIndex = 1
-    }
-    if (n < 1){
-        slideIndex = x.length
+puppy.showDivs = function(counter){
+    var picsDiv = $(".pics-div");
+    if (counter > picsDiv.length){
+        picsIndex = 1;
     };
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+    if (counter < 1){
+        picsIndex = picsDiv.length
+    };
+    for (var i = 0; i < picsDiv.length; i++) {
+        picsDiv[i].style.display = "none";
     }
-    x[picsIndex-1].style.display = "block";
+    picsDiv[picsIndex-1].style.display = "block";
 };
 
 
