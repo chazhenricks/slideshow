@@ -6,26 +6,33 @@ puppy.loadPuppies = function(){
 
     $.ajax({
         url: 'https://api.nasa.gov/planetary/apod?api_key=bPs6DkG9TX1CtFbImwnVMvopK5v1dbTpxarpHSO3'
-    }).done(puppy.showPuppies);
+    }).done(puppy.parseData);
 };
 
-puppy.showPuppies = function(pics){
 
-    var spaceJson =
-    {
-        "space" : [
-            {
-            "name" : pics.title,
-            "img" : pics.url,
-            "caption" : pics.explanation
-            }
-        ]
+puppy.parseData = function (data){
+
+    forEach(item in data){
+
     }
+};
 
+
+
+
+
+
+
+
+puppy.showPictures = function(pics){
+
+    var spaceJson =[];
+
+
+    console.log(spaceJson);
 
 
     var pups = spaceJson;
-    console.log(spaceJson);
     var puppyImage = "";
     for (var i=0; i<pups.length;i++){
         puppyImage +=
@@ -46,8 +53,8 @@ puppy.showPuppies = function(pics){
         <a class="next" id="next" href="#"> &#10095; </a>`;
 
     $("#slideshow").append(puppyImage);
-   puppy.buttons();
-   puppy.showDivs(picsIndex);
+  // puppy.buttons();
+  // puppy.showDivs(picsIndex);
 
     //NASA API key bPs6DkG9TX1CtFbImwnVMvopK5v1dbTpxarpHSO3
 
