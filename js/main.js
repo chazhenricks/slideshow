@@ -5,20 +5,34 @@ var picsIndex = 1;
 puppy.loadPuppies = function(){
 
     $.ajax({
-        url: 'puppies.json'
+        url: 'https://api.nasa.gov/planetary/apod?api_key=bPs6DkG9TX1CtFbImwnVMvopK5v1dbTpxarpHSO3'
     }).done(puppy.showPuppies);
 };
 
 puppy.showPuppies = function(pics){
-    var pups = pics.puppies;
+
+    var spaceJson =
+    {
+        "space" : [
+            {
+            "name" : pics.title,
+            "img" : pics.url,
+            "caption" : pics.explanation
+            }
+        ]
+    }
+
+
+
+    var pups = spaceJson;
+    console.log(spaceJson);
     var puppyImage = "";
-    console.log(pups[1].src);
     for (var i=0; i<pups.length;i++){
         puppyImage +=
         `<article class ="pics-div">
-            <img class="pics-img" src="${pups[i].src}" alt="totally cute puppy">
+            <img class="pics-img" src="${pups[i].url}" alt="${pups[i].title}">
             <div class="pics-info">
-                <p class="pics-caption">This pups name is ${pups[i].name}</p>
+                <p class="pics-caption">This pups name is ${pups[i].explanation}</p>
             </div>
             <div class = "buttons">
                 <a href="#" class="previous"> PREVIOUS </a>
@@ -32,8 +46,10 @@ puppy.showPuppies = function(pics){
         <a class="next" id="next" href="#"> &#10095; </a>`;
 
     $("#slideshow").append(puppyImage);
-    puppy.buttons();
-    puppy.showDivs(picsIndex);
+   puppy.buttons();
+   puppy.showDivs(picsIndex);
+
+    //NASA API key bPs6DkG9TX1CtFbImwnVMvopK5v1dbTpxarpHSO3
 
 };
 
