@@ -5,14 +5,14 @@ a{
 Description overlay
 ****************/
 .slideshow{
-    width: 400px;
+    width: 600px;
     height: 400px;
     margin: auto;
 
 }
 
 .pics-div{
-    width: 400px;
+    width: 600px;
     position: absolute;
     display: block;
     top: 0;
@@ -21,7 +21,7 @@ Description overlay
 
 
 .pics-img{
-    width: 400px;
+    width: 600px;
     height: 400px;
     display: block;
 }

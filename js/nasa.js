@@ -18,9 +18,12 @@ space.getPics = function(i){
 
 space.getDate = function(i){
     var today = new Date();
-        var dd = today.getDate()-i;
-        var mm = today.getMonth()+1;
-        var year = today.getFullYear();
+    var other = new Date(today);
+    other.setDate(today.getDate()-i);
+
+        var dd = other.getDate();
+        var mm = other.getMonth()+1;
+        var year = other.getFullYear();
 
         if(dd<10) {
             dd='0'+dd
@@ -28,8 +31,9 @@ space.getDate = function(i){
         if(mm<10) {
             mm='0'+mm
         }
-        today = `${year}-${mm}-${dd}`;
-        return today;
+
+        other = `${year}-${mm}-${dd}`;
+        return other;
 }
 
 
@@ -92,9 +96,10 @@ space.showDivs = function(counter){
 
 };
 
+space.howManyItems = function(){
+    return spacePics;
+}
 
-
-console.log(spacePics);
 
     return space;
 
